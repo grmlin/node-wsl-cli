@@ -1,27 +1,14 @@
 #!/usr/bin/env node
-'use strict';
-const meow = require('meow');
-const unicornFun = require('unicorn-fun');
 
-const cli = meow(`
-	Usage
-	  $ unicorn-fun [input]
+"use strict";
 
-	Options
-	  --postfix  Lorem ipsum  [Default: rainbows]
+const { program } = require("commander");
+const pckJson = require("./package.json");
 
-	Examples
-	  $ cli-name
-	  unicorns & rainbows
-	  $ cli-name ponies
-	  ponies & rainbows
-`, {
-	flags: {
-		postfix: {
-			type: 'string',
-			default: 'rainbows'
-		}
-	}
-});
+const { registerRun, registerExport } = require("./lib/commands");
 
-console.log(moduleName(cli.input[0] || 'unicorns', cli.flags));
+program.version(pckJson.version);
+registerRun(program);
+registerExport(program);
+
+program.parse(process.argv);

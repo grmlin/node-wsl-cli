@@ -1,39 +1,56 @@
 {
-	"name": "unicorn-fun-cli",
-	"version": "0.0.0",
-	"description": "My awesome command-line tool",
+	"name": "node-wsl-cli",
+	"version": "1.0.0",
+	"description": "node-wsl command-line tool",
 	"license": "MIT",
-	"repository": "YOUR-GITHUB-USERNAME/unicorn-fun-cli",
+	"repository": "grmlin/unicorn-fun-cli",
 	"author": {
-		"name": "YOUR NAME",
-		"email": "YOUR EMAIL",
-		"url": "YOUR WEBSITE"
+		"name": "Andreas Wehr",
+		"email": "iam@grml.lin",
+		"url": "https://github.com/grmlin"
 	},
 	"bin": {
-		"unicorn-fun": "cli.js"
+		"node-wsl": "cli.js"
 	},
 	"engines": {
-		"node": ">=8"
+		"node": ">=10"
 	},
 	"scripts": {
-		"test": "xo && ava"
+		"eslint": "eslint",
+		"test": "cross-env NODE_ENV=test jest",
+		"test-coverage": "cross-env NODE_ENV=test jest --coverage"
 	},
 	"files": [
-		"cli.js"
+		"cli.js",
+		"lib/commands"
 	],
 	"keywords": [
 		"cli",
 		"cli-app",
-		"unicorn",
-		"fun"
+		"wsl",
+		"windows",
+		"node-wsl"
 	],
 	"dependencies": {
-		"meow": "^5.0.0",
-		"unicorn-fun": "^0.0.0"
+		"commander": "^6.0.0",
+		"execa": "^2.1.0",
+		"lodash": "^4.17.19",
+		"ow": "^0.17.0",
+		"terminal-kit": "^1.42.0"
 	},
 	"devDependencies": {
-		"ava": "^2.1.0",
-		"execa": "^2.0.0",
-		"xo": "^0.24.0"
+		"cross-env": "^7.0.2",
+		"eslint": "^7.2.0",
+		"eslint-config-airbnb": "^18.2.0",
+		"eslint-config-node": "^4.1.0",
+		"eslint-config-prettier": "^6.11.0",
+		"eslint-plugin-import": "^2.22.0",
+		"eslint-plugin-jsx-a11y": "^6.3.1",
+		"eslint-plugin-node": "^11.1.0",
+		"eslint-plugin-prettier": "^3.1.4",
+		"eslint-plugin-react": "^7.20.5",
+		"eslint-plugin-react-hooks": "^4.0.0",
+		"jest": "^26.3.0",
+		"prettier": "^2.0.5"
 	}
 }
